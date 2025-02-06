@@ -2,9 +2,15 @@
 const passwordInput = document.getElementById('password');
 const message = document.getElementById('message');
 
-// Función para actualizar el mensaje según la longitud de la contraseña
+// Función para actualizar el mensaje según la longitud de la contraseña y otros criterios
 function updateMessage() {
-    const passwordLength = passwordInput.value.length;
+    const password = passwordInput.value;
+    const passwordLength = password.length;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasNoWhitespace = !/\s/.test(password);
 
     if (passwordLength < 8) {
         message.innerHTML = 'Contraseña demasiado corta';
@@ -15,6 +21,31 @@ function updateMessage() {
     } else {
         message.innerHTML = 'Contraseña segura';
         message.style.color = 'green';
+    }
+
+    if (!hasUpperCase) {
+        message.innerHTML += '<br>Debe contener al menos una letra mayúscula';
+        message.style.color = 'red';
+    }
+
+    if (!hasLowerCase) {
+        message.innerHTML += '<br>Debe contener al menos una letra minúscula';
+        message.style.color = 'red';
+    }
+
+    if (!hasDigit) {
+        message.innerHTML += '<br>Debe contener al menos un dígito';
+        message.style.color = 'red';
+    }
+
+    if (!hasSpecialChar) {
+        message.innerHTML += '<br>Debe contener al menos un carácter especial';
+        message.style.color = 'red';
+    }
+
+    if (!hasNoWhitespace) {
+        message.innerHTML += '<br>No debe contener espacios en blanco';
+        message.style.color = 'red';
     }
 }
 
