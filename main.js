@@ -1,8 +1,7 @@
-// Obtener referencias a los elementos del DOM
-const nombreInput = document.getElementById("usuario");
-const contrasenyaInput = document.getElementById("contrasenya");
-const parrafo = document.getElementById("texto");
-const loginBtn = document.getElementById("login");
+// Obtener el input de contraseña y el elemento de mensaje
+const passwordInput = document.getElementById('password');
+const userInput = document.getElementById('user');
+const message = document.getElementById('message');
 
 // Función principal que valida la contraseña y el nombre
 function validarCampos() {
