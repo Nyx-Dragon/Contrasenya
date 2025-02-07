@@ -2,7 +2,7 @@
 const passwordInput = document.getElementById('password');
 const message = document.getElementById('message');
 
-// Función para actualizar el mensaje según la longitud de la contraseña y otros criterios
+// Función para actualizar el mensaje según la longitud y tipos de caracteres de la contraseña y otros criterios
 function updateMessage() {
     const password = passwordInput.value;
     const passwordLength = password.length;
