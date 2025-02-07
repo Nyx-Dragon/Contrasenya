@@ -2,13 +2,16 @@
 const passwordInput = document.getElementById('password');
 const userInput = document.getElementById('user');
 const message = document.getElementById('message');
-
-// Función principal que valida la contraseña y el nombre
-function validarCampos() {
-    const contrasenya = contrasenyaInput.value;
-    const nombre = nombreInput.value;
-    let mensajes = []; // Almacena los mensajes de validación
-    let isSecure = true; // Indica si la contraseña es segura
+const loginInput = document.getElementById('login');
+// Función para actualizar el mensaje según la longitud y tipos de caracteres de la contraseña y otros criterios
+function updateMessage() {
+    const password = passwordInput.value;
+    const passwordLength = password.length;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasNoWhitespace = !/\s/.test(password);
 
     // Validaciones de la contraseña
     isSecure = validarLongitud(contrasenya, mensajes) && isSecure;
