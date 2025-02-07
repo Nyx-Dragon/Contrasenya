@@ -26,6 +26,9 @@
     margin-top: 80px;
     gap: 250px;
 }
+#user{
+    border-radius: 50px;
+}
 
 #flex-container1 {
     display: flex;
